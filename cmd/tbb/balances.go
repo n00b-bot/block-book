@@ -36,6 +36,7 @@ var balancesListCmd = &cobra.Command{
 		defer state.DbFile.Close()
 		fmt.Println("Account Balances")
 		fmt.Println("------------------------------")
+		fmt.Printf("%x\n", string(state.Snapshot[:]))
 		for user, balance := range state.User {
 			fmt.Println("Account " + user + ": " + model.Account(strconv.Itoa(balance)))
 		}
